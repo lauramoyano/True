@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import FileUploader from './FileUploader';
+
 
 function App() {
+  // Define contacts en el componente principal y pasa una función para actualizarlo
+  const [contacts, setContacts] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Pasa contacts como una prop al componente FileUploader */}
+      <FileUploader setContacts={setContacts} />
+     
     </div>
   );
 }
