@@ -3,14 +3,14 @@ import axios from 'axios';
 
 const FileUploader = () => {
   const [contacts, setContacts] = useState([]);
-  const [ setUploaded] = useState(false);
+  
 
   const formatPhoneNumber = (phoneNumber) => {
     // Eliminar cualquier carácter que no sea un dígito
     const digitsOnly = phoneNumber.replace(/\D/g, '');
   
     // Verificar si hay suficientes dígitos para formatear (10 dígitos)
-    if (digitsOnly.length === 10) {
+    if (digitsOnly.length >= 10) {
       // Aplicar el formato "555-555-5555"
       return `${digitsOnly.slice(0, 3)}-${digitsOnly.slice(3, 6)}-${digitsOnly.slice(6)}`;
     } else {
@@ -47,7 +47,7 @@ const FileUploader = () => {
         }
   
         setContacts(objList);
-        setUploaded(true);
+   
         console.log(objList);
       };
   
@@ -116,7 +116,7 @@ const FileUploader = () => {
 const tableHeaderStyle = {
   backgroundColor: '#f0f0f0',
   padding: '10px',
-  textAlign: 'left',
+  textAlign: 'center',
 };
 
 const tableRowStyle = {
