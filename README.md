@@ -23,6 +23,8 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ## Formato de datos
-Según el formato de los datos que recibe la API, se toman números de teléfonos que tengan 10 dígitos
+Según el formato de los datos que recibe la API, se toman números de teléfonos que tengan 10 dígitos:
+![image](https://github.com/lauramoyano/True/assets/65038415/5d26fa3d-3544-4b7c-86c4-668d237cb305)
+
 
 
