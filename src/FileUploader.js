@@ -9,15 +9,22 @@ const FileUploader = () => {
     // Eliminar cualquier carácter que no sea un dígito
     const digitsOnly = phoneNumber.replace(/\D/g, '');
   
-    // Verificar si hay suficientes dígitos para formatear (10 dígitos)
-    if (digitsOnly.length >= 10) {
-      // Aplicar el formato "555-555-5555"
-      return `${digitsOnly.slice(0, 3)}-${digitsOnly.slice(3, 6)}-${digitsOnly.slice(6)}`;
+    // Asegurarse de que haya al menos 9 dígitos
+    if (digitsOnly.length >= 9) {
+      // Si ya tiene 10 dígitos, no agregamos '0'
+      if (digitsOnly.length === 10) {
+        return `${digitsOnly.slice(0, 3)}-${digitsOnly.slice(3, 6)}-${digitsOnly.slice(6)}`;
+      } else {
+        // Agregar un '0' al principio si tiene menos de 10 dígitos
+        const paddedDigits = digitsOnly.padStart(10, '0');
+        return `${paddedDigits.slice(0, 3)}-${paddedDigits.slice(3, 6)}-${paddedDigits.slice(6)}`;
+      }
     } else {
-      // Si el número no tiene 10 dígitos, devuelve el número original
+      // Si el número no tiene al menos 9 dígitos, devuelve el número original
       return phoneNumber;
     }
   };
+  
   
 
   const handleOnDrop = async (event) => {
