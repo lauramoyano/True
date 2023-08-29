@@ -8,7 +8,7 @@ const FileUploader = () => {
   const formatPhoneNumber = (phoneNumber) => {
     // Eliminar cualquier carácter que no sea un dígito
     const digitsOnly = phoneNumber.replace(/\D/g, '');
-  
+   
     // Asegurarse de que haya al menos 9 dígitos
     if (digitsOnly.length >= 9) {
       // Si ya tiene 10 dígitos, no agregamos '0'
@@ -79,8 +79,10 @@ const FileUploader = () => {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
-      <input type="file" accept=".csv" onChange={handleOnDrop} />
+      
+      <input type="file" accept=".csv" onChange={handleOnDrop} aria-label="Seleccionar archivos" />
       <button
+        id="upload"
         onClick={handleUpload}
         style={{
           marginTop: '10px',
@@ -92,9 +94,7 @@ const FileUploader = () => {
           cursor: 'pointer',
           transition: 'background-color 0.3s ease',
         }}
-      >
-        Upload Contacts
-      </button>
+      >Upload Contacts</button>
       <div>
       <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>List of Contacts</h2>
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
